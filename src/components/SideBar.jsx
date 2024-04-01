@@ -1,18 +1,9 @@
 import React, { useState } from "react";
 import "../App.css";
-import {
-  FaBars,
-  FaShoppingBag,
-  FaTh,
-  FaUserAlt,
-  FaRegChartBar,
-  FaCommentAlt,
-  FaThList,
-  FaSearch,
-} from "react-icons/fa";
+import { FaBars, FaTh, FaWallet } from "react-icons/fa";
+import { GiMoneyStack } from "react-icons/gi";
+import { VscOrganization } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,47 +17,33 @@ const SideBar = ({ children }) => {
     {
       path: "/organization",
       name: "Organization",
-      icon: <FaUserAlt />,
-    },
-    {
-      path: "/assets",
-      name: "Assets",
-      icon: <FaRegChartBar />,
+      icon: <VscOrganization />,
     },
     {
       path: "/trade",
       name: "Trade",
-      icon: <FaCommentAlt />,
-    },
-    {
-      path: "/history",
-      name: "History",
-      icon: <FaShoppingBag />,
+      icon: <GiMoneyStack />,
     },
     {
       path: "/wallet",
       name: "Wallet",
-      icon: <FaThList />,
+      icon: <FaWallet />,
     },
   ];
   return (
     <div className="container">
       <div style={{ width: isOpen ? "300px" : "50px" }} className="sidebar">
         <div className="top_section">
-          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-            Logo
+          <h1
+            style={{ display: isOpen ? "block" : "none", width: "12rem" }}
+            className="logo"
+          >
+            Carbon Cell
           </h1>
           <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
             <FaBars onClick={toggle} />
           </div>
         </div>
-        {/* <div className="icon">
-          <FaSearch onClick={toggle} />
-        </div>
-        <InputText
-          placeholder="Keyword"
-          style={{ display: isOpen ? "block" : "none" }}
-        /> */}
 
         <div>
           {menuItem.map((item, index) => (

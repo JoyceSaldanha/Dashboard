@@ -17,7 +17,7 @@ main {
 
 .sidebar {
     background-color: black;
-    color: white;
+    color: rgb(255, 255, 255);
     height: 100vh;
     width: 300px;
     transition: all 0.5s;
@@ -31,12 +31,13 @@ main {
 
 .logo {
     font-size: 30px;
+    font-style: oblique;
 }
 
 .bars {
     display: flex;
     font-size: 25px;
-    margin-left: 50px;
+    margin-left: auto;
     cursor: pointer;
 }
 
@@ -61,11 +62,13 @@ main {
 
 .icon, .link_text {
     font-size: 20px;
+    font-style: oblique;
 }
 
 .bitcoin-container {
     display: flex;
-    gap: 1rem;
+    flex-direction: row;
+    gap: 5rem;
     margin-top: 2rem;
 }
 
@@ -73,4 +76,32 @@ main {
     color: rebeccapurple;
     background-color: azure;
     padding: 1rem;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: oblique;
+}
+
+.p-button.p-component {
+    margin: 0 auto; 
+    margin-top: 5rem;
+    padding: 1rem;
+    left:45%;
+    background-color: black;
+}
+
+.chart-container {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 3rem;
+    justify-content: center;
+    margin: 2rem auto;
 }

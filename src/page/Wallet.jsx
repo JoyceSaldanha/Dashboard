@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Web3 from "web3";
+import { Button } from "primereact/button";
 
 const Wallet = () => {
   const [walletConnected, setWalletConnected] = useState(false);
@@ -7,18 +8,12 @@ const Wallet = () => {
 
   const connectWallet = async () => {
     try {
-      // Check if MetaMask is installed
       if (window.ethereum) {
-        // Enable MetaMask
         await window.ethereum.request({ method: "eth_requestAccounts" });
-        // Create Web3 instance
         const web3 = new Web3(window.ethereum);
-        // Get selected account
         const accounts = await web3.eth.getAccounts();
         const selectedAccount = accounts[0];
-        // Set wallet connected state
         setWalletConnected(true);
-        // Log wallet address
         console.log("Connected wallet address:", selectedAccount);
       } else {
         setErrorMessage(
@@ -34,14 +29,22 @@ const Wallet = () => {
   return (
     <>
       <div>
-        <button onClick={connectWallet}>Connect Wallet</button>
-        {walletConnected && <p>Wallet connected successfully!</p>}
-        {errorMessage && <p>{errorMessage}</p>}
+        <h2 className="heading">About Wallet</h2>
+        <div className="card flex justify-content-center">
+          <Button
+            className="wallet_btn"
+            label="Connect Wallet"
+            onClick={connectWallet}
+          />
+        </div>
+        {walletConnected ? (
+          <h2 className="heading">Successfully connected</h2>
+        ) : (
+          <h2 className="heading">{errorMessage}</h2>
+        )}
       </div>
     </>
   );
 };
 
 export default Wallet;
-
-// desk quote fluid hen easy gym glide alone excuse night force agree
